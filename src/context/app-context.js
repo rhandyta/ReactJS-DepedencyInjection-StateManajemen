@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { useEffect, useState } from "react";
 export const AppContext = createContext({});
 
@@ -9,7 +9,7 @@ export function useAppContext() {
 export function AppProvider({ children }) {
     const [user, setUser] = useState({});
     const [theme, setTheme] = useState("dark");
-    const [state, dispatch] = useReducer(red);
+    const [state, dispatch] = useReducer('red');
 
     useEffect(() => {
         const user = {
@@ -25,11 +25,13 @@ export function AppProvider({ children }) {
         setUser,
         theme,
         setTheme,
+        state,
+        dispatch
     };
 
     return (
-        // <AppContext.Provider value={appContextValue}>
-        //     {children}
-        // </AppContext.Provider>
+        <AppContext.Provider value={appContextValue}>
+            {children}
+        </AppContext.Provider>
     );
 }

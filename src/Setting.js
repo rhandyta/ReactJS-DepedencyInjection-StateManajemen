@@ -1,5 +1,5 @@
 import { useAppContext } from "./context/app-context";
-
+import React from "react";
 export default function Setting() {
     const context = useAppContext();
     return (
